@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	// "github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	awscdklambdago "github.com/aws/aws-cdk-go/awscdklambdagoalpha/v2"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 )
@@ -20,10 +21,11 @@ func NewServerlessStack(scope constructs.Construct, id string, props *Serverless
 
 	// The code that defines your stack goes here
 
-	// example resource
-	// queue := awssqs.NewQueue(stack, jsii.String("ServerlessQueue"), &awssqs.QueueProps{
-	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
-	// })
+	awscdklambdago.NewGoFunction(stack, jsii.String("Helloworld"), &awscdklambdago.GoFunctionProps{
+		FunctionName: jsii.String("Helloworld"),
+		Description:  jsii.String("Helloworld"),
+		Entry:        jsii.String("./src/handler"),
+	})
 
 	return stack
 }
