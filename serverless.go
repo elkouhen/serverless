@@ -20,11 +20,10 @@ func NewServerlessStack(scope constructs.Construct, id string, props *Serverless
 	stack := awscdk.NewStack(scope, &id, &sprops)
 
 	// The code that defines your stack goes here
-
 	awscdklambdago.NewGoFunction(stack, jsii.String("Helloworld"), &awscdklambdago.GoFunctionProps{
 		FunctionName: jsii.String("Helloworld"),
 		Description:  jsii.String("Helloworld"),
-		Entry:        jsii.String("./src/handler"),
+		Entry:        jsii.String("./src/helloworld"),
 	})
 
 	return stack
