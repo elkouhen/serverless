@@ -13,7 +13,7 @@ func helloworld(ctx context.Context,
 
 	return events.APIGatewayV2HTTPResponse{
 		StatusCode: 200,
-		Body:       string(""),
+		Body:       string("helloworld"),
 		Headers: map[string]string{
 			"Content-Type": "application/json",
 		},
